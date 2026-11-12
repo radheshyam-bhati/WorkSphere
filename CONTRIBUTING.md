@@ -653,6 +653,25 @@ npx playwright install-deps
 | `npx playwright test --debug`                   | Step through test execution using Playwright Inspector          |
 | `npx playwright show-trace <path-to-trace.zip>` | Open Playwright Trace Viewer for failed test runs               |
 
+### 8. Playwright Testing Guide for Booking Workflows
+
+> **Guide**: [docs/testing/PLAYWRIGHT_GUIDE.md](docs/testing/PLAYWRIGHT_GUIDE.md)
+>
+> **Purpose**: Comprehensive guide for writing and running Playwright E2E tests specifically for booking and check-in workflows.
+>
+> **Contents**:
+> - Setup instructions (`npx playwright install --with-deps`)
+> - Execution modes: headed, headless, UI debugging
+> - Mock authentication strategies (bypassing WebAuthn/magic-link in CI)
+> - Test templates for desk reservation happy path and conflict states
+> - CI workflow integration tips (GitHub Actions, auth state, trace viewing)
+>
+> **How to add new booking tests**:
+> 1. Create `e2e/desk-*.spec.ts` using the templates in the guide
+> 2. Ensure auth state via `e2e/.auth/user.json` or mock cookies
+> 3. Run `npm run test:e2e` to verify across all browsers
+> 4. Update this guide if workflows change
+
 ### Viewing Failure Traces with Playwright Trace Viewer
 
 Playwright automatically records execution traces, DOM snapshots, network logs, and screenshots when a test fails.
